@@ -5,13 +5,17 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.touch.TapOptions;
-import io.appium.java_client.touch.offset.ElementOption;
+import static io.appium.java_client.touch.offset.ElementOption.element;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import static io.appium.java_client.touch.TapOptions.tapOptions;
 import org.testng.annotations.Test;
+import static io.appium.java_client.touch.LongPressOptions.longPressOptions;
+import static io.appium.java_client.touch.offset.ElementOption.element;
 
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 public class Base {
     static AndroidDriver<AndroidElement> driver;
@@ -29,7 +33,7 @@ public class Base {
         capabilities.setCapability(MobileCapabilityType.APP,fs.getAbsolutePath());
 
         driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
-
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         return driver;
 
     }
@@ -46,8 +50,11 @@ public class Base {
     public static void taping(String modules) {
         TouchAction ta = new TouchAction(driver);
         AndroidElement animation = driver.findElementByAccessibilityId(modules);
-        ta.tap(TapOptions.tapOptions().withElement(ElementOption.element(animation))).perform();
+        ta.tap(tapOptions().withElement(element(animation))).perform();
 
     }
+    public static void scrolling(String attribute, String value){
 
+        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("+attribute+"(\""+value+"\"))").click();
+    }
 }
