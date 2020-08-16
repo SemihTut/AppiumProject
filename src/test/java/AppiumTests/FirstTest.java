@@ -27,7 +27,10 @@ public class FirstTest extends Base{
         driver.findElementByXPath("(//android.widget.RelativeLayout)[1]").click();
         driver.findElementByXPath("(//android.widget.RelativeLayout)[2]").click();
         driver.findElementByClassName("android.widget.EditText").sendKeys("Semih TUT");
-        driver.findElementById("android:id/button1").click();
+
+        //2 ways
+       // driver.findElementById("android:id/button1").click();
+        driver.findElementsByClassName("android.widget.Button").get(1).click();
 
 
     }
