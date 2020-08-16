@@ -17,6 +17,17 @@ public class FirstTest extends Base{
         navigateTo("Preference","9. Switch");
         driver.findElementByXPath("(//android.widget.CheckBox)[1]").click();
 
+    }
+
+    @Test
+    public void wifiSettings() throws MalformedURLException {
+        driver=Capabilities();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        navigateTo("Preference","3. Preference dependencies");
+        driver.findElementByXPath("(//android.widget.RelativeLayout)[1]").click();
+        driver.findElementByXPath("(//android.widget.RelativeLayout)[2]").click();
+        driver.findElementByClassName("android.widget.EditText").sendKeys("Semih TUT");
+        driver.findElementById("android:id/button1").click();
 
 
     }
