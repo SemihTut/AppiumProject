@@ -1,8 +1,11 @@
 package AppiumTests;
 
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.MobileCapabilityType;
+import io.appium.java_client.touch.TapOptions;
+import io.appium.java_client.touch.offset.ElementOption;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.Test;
 
@@ -40,4 +43,11 @@ public class Base {
 
 
     }
+    public static void taping(String modules) {
+        TouchAction ta = new TouchAction(driver);
+        AndroidElement animation = driver.findElementByAccessibilityId(modules);
+        ta.tap(TapOptions.tapOptions().withElement(ElementOption.element(animation))).perform();
+
+    }
+
 }
