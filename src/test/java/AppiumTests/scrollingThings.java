@@ -18,8 +18,9 @@ public class scrollingThings extends Base{
 
     @Test
     public void scrolling() throws MalformedURLException {
-        driver=Capabilities();
-        taping("Views");
+        driver=Capabilities("emulator");
+        scrolling("Views");
+      // taping("Views");
        // driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\"WebView\"))").click();
         scrolling("text","WebView");
 

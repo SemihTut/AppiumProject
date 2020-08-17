@@ -17,7 +17,7 @@ public class DragAndDrop extends Base{
     @Test
     public void dragAndDrop() throws MalformedURLException {
 
-        driver=Capabilities();
+        driver=Capabilities("emulator");
         navigateTo("Views","Drag and Drop");
         TouchAction ta = new TouchAction(driver);
         AndroidElement firstDot = driver.findElementById("io.appium.android.apis:id/drag_dot_1");

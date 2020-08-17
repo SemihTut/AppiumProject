@@ -21,7 +21,7 @@ public class KeysOfMobile extends Base{
     @Test
     public void keysEvent() throws MalformedURLException {
 
-        driver=Capabilities();
+        driver=Capabilities("emulator");
         navigateTo("Views","Drag and Drop");
         ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.BACK));
 

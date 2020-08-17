@@ -21,7 +21,7 @@ public class SwipeTest extends Base{
 
     @Test
     public void swipeThings() throws MalformedURLException {
-        driver = Capabilities();
+        driver = Capabilities("emulator");
         navigateTo("Views","Date Widgets");
         taping("2. Inline");
         AndroidElement elo = driver.findElementByXPath("//*[@content-desc='9']");

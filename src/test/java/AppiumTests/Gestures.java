@@ -18,7 +18,7 @@ public class Gestures extends Base{
 
     @Test
     public void mobileGestures() throws MalformedURLException {
-        driver=Capabilities();
+        driver=Capabilities("emulator");
         driver.findElementByAccessibilityId("Views").click();
         taping("Animation");
 
@@ -26,7 +26,7 @@ public class Gestures extends Base{
 
     @Test
     public void longPress() throws MalformedURLException {
-        driver=Capabilities();
+        driver=Capabilities("emulator");
         TouchAction ta = new TouchAction(driver);
         navigateTo("Views","Expandable Lists");
         taping("1. Custom Adapter");

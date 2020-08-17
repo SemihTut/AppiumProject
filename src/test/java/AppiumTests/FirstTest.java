@@ -12,7 +12,7 @@ public class FirstTest extends Base{
     @Test
     public void test() throws MalformedURLException {
 
-        driver=Capabilities();
+        driver=Capabilities("emulator");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         navigateTo("Preference","9. Switch");
         driver.findElementByXPath("(//android.widget.CheckBox)[1]").click();
@@ -21,7 +21,7 @@ public class FirstTest extends Base{
 
     @Test
     public void wifiSettings() throws MalformedURLException {
-        driver=Capabilities();
+        driver=Capabilities("emulator");
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         navigateTo("Preference","3. Preference dependencies");
         driver.findElementByXPath("(//android.widget.RelativeLayout)[1]").click();

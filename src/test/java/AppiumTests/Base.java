@@ -20,13 +20,19 @@ import java.util.concurrent.TimeUnit;
 public class Base {
     static AndroidDriver<AndroidElement> driver;
 
-    public static AndroidDriver<AndroidElement> Capabilities() throws MalformedURLException {
+    public static AndroidDriver<AndroidElement> Capabilities(String device) throws MalformedURLException {
 
         File f = new File("src");
         File fs = new File(f,"ApiDemos-debug.apk");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"Pixel_2");
+        if(device.equals("emulator")){
+            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"Pixel_2");
+        }else if(device.equals("real")){
+            capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"Android Device");
+        }
+
+
        // capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, Platform.ANDROID);
       //  capabilities.setCapability(MobileCapabilityType.VERSION,"8.0");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"UiAutomator2");
@@ -56,5 +62,10 @@ public class Base {
     public static void scrolling(String attribute, String value){
 
         driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView("+attribute+"(\""+value+"\"))").click();
+    }
+
+    public static void scrolling(String attribute){
+
+        driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text(\""+attribute+"\"))").click();
     }
 }
