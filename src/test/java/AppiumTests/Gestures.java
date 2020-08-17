@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 public class Gestures extends Base{
 
     @Test
-    public void mobileGestures() throws MalformedURLException {
+    public void mobileGestures() throws MalformedURLException, InterruptedException {
         driver=Capabilities("emulator");
         driver.findElementByAccessibilityId("Views").click();
         taping("Animation");
@@ -25,7 +25,7 @@ public class Gestures extends Base{
     }
 
     @Test
-    public void longPress() throws MalformedURLException {
+    public void longPress() throws MalformedURLException, InterruptedException {
         driver=Capabilities("emulator");
         TouchAction ta = new TouchAction(driver);
         navigateTo("Views","Expandable Lists");

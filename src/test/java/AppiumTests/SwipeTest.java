@@ -20,7 +20,7 @@ import static java.time.Duration.*;
 public class SwipeTest extends Base{
 
     @Test
-    public void swipeThings() throws MalformedURLException {
+    public void swipeThings() throws MalformedURLException, InterruptedException {
         driver = Capabilities("emulator");
         navigateTo("Views","Date Widgets");
         taping("2. Inline");

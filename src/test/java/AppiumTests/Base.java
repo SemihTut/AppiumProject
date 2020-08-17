@@ -46,17 +46,20 @@ public class Base {
 
     public static void navigateTo(String modules,String tab) {
 
-        driver.findElementByAccessibilityId(modules).click();
+        scrolling(modules);
+        scrolling(tab);
+       // driver.findElementByAccessibilityId(modules).click();
        // Thread.sleep(2000);
-        driver.findElementByAccessibilityId(tab).click();
+       // driver.findElementByAccessibilityId(tab).click();
 
 
 
     }
-    public static void taping(String modules) {
+    public static void taping(String modules) throws InterruptedException {
         TouchAction ta = new TouchAction(driver);
         AndroidElement animation = driver.findElementByAccessibilityId(modules);
         ta.tap(tapOptions().withElement(element(animation))).perform();
+        Thread.sleep(2000);
 
     }
     public static void scrolling(String attribute, String value){
