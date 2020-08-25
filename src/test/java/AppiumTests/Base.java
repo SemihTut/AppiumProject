@@ -48,7 +48,7 @@ public class Base {
 
         scrolling(modules);
         scrolling(tab);
-       // driver.findElementByAccessibilityId(modules).click();
+        driver.findElementByAccessibilityId(modules).click();
        // Thread.sleep(2000);
        // driver.findElementByAccessibilityId(tab).click();
 

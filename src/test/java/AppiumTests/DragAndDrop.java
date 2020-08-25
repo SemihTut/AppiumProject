@@ -22,6 +22,7 @@ public class DragAndDrop extends Base{
         TouchAction ta = new TouchAction(driver);
         AndroidElement firstDot = driver.findElementById("io.appium.android.apis:id/drag_dot_1");
         AndroidElement thirdDot = driver.findElementById("io.appium.android.apis:id/drag_dot_3");
+        
 
        // ta.longPress(longPressOptions().withElement(element(firstDot))).moveTo(element(thirdDot)).release().perform();
         ta.longPress(element(firstDot)).moveTo(element(thirdDot)).release().perform();
